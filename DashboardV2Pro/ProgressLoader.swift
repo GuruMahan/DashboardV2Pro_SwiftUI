@@ -10,13 +10,13 @@
 import SwiftUI
 
 struct ProgressLoader: ViewModifier {
+    
     @Binding var isShowing: Bool
     
     func body(content: Content) -> some View {
         ZStack(alignment: .center) {
             content
                 .disabled(self.isShowing)
-            
             VStack {
                 ActivityIndicator(isAnimating: .constant(true), style: .large)
             }
@@ -25,12 +25,12 @@ struct ProgressLoader: ViewModifier {
             .foregroundColor(Color.primary)
             .cornerRadius(20)
             .opacity(self.isShowing ? 1 : 0)
-            
         }
     }
 }
 
 struct ActivityIndicator: UIViewRepresentable {
+    
     @Binding var isAnimating: Bool
     let style: UIActivityIndicatorView.Style
     

@@ -15,16 +15,16 @@ struct ContentView: View {
             ZStack {
                 dashBoardView
                 LeftSideView(isMenuVisible: $showLeftMenu)
-
-             Spacer()
-              
+                
+                Spacer()
+                
             }
             .onAppear{
                 isLoaderShown = false
             }
         }
-        
     }
+    
     @ViewBuilder var dashBoardView: some View{
         VStack(spacing:0){
             Color.blue
@@ -35,8 +35,7 @@ struct ContentView: View {
         .ignoresSafeArea(edges: .top)
         .loader(isShown: $isLoaderShown)
     }
-   
-
+    
     @ViewBuilder var headerView: some View{
         ZStack{
             Text("Dashboard")
@@ -44,25 +43,23 @@ struct ContentView: View {
                 Button {
                     withAnimation {
                         DispatchQueue.main.async {
-                           showLeftMenu = true
-                          
+                            showLeftMenu = true
+                            
                         }
                     }
                 } label: {
                     Image(systemName: "list.bullet")
                         .font(.system(size: 30))
                 }
-              Spacer()
-                   
+                Spacer()
+                
             }
         }
         .padding()
-            .foregroundColor(.white)
-            .frame(height: 55)
-            .background(Color.blue)
-
+        .foregroundColor(.white)
+        .frame(height: 55)
+        .background(Color.blue)
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

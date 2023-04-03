@@ -12,7 +12,6 @@ extension UserDefaults{
     static let phoneNumber = "phoneNumber"
     static let password = "password"
     static let confirmPassword = "confirmPassword"
-
     
     static var emailId: String? {
         get{

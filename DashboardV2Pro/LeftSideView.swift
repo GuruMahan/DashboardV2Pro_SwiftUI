@@ -8,20 +8,22 @@
 import SwiftUI
 
 struct LeftSideView: View {
+    
     let menuWidth: CGFloat = (UIScreen.main.bounds.width * 0.8)
     @Binding var isMenuVisible: Bool
     @State var  isUserInfoShow: Bool = false
+    
     var body: some View {
         ZStack {
             GeometryReader{ _ in
-              EmptyView()
+                EmptyView()
             }
             .background(Color.black.opacity(0.3))
             .opacity(isMenuVisible ? 1.0 : 0.0)
-                .animation(Animation.easeIn.delay(0.2))
-                .onTapGesture {
-                    isMenuVisible.toggle()
-                }
+            .animation(Animation.easeIn.delay(0.2))
+            .onTapGesture {
+                isMenuVisible.toggle()
+            }
             HStack{
                 VStack{
                     profileView
@@ -35,18 +37,14 @@ struct LeftSideView: View {
                 .offset(x: isMenuVisible ? 0: -menuWidth)
                 .animation(.default)
                 Spacer()
-                
             }
-            
         }
     }
-   
     
     @ViewBuilder var profileView: some View{
         VStack{
             HStack(alignment: .center){
                 NavigationLink {
-                
                 } label: {
                     Image(systemName: "paperplane.circle")
                         .resizable()
@@ -60,7 +58,6 @@ struct LeftSideView: View {
                 }
                 userSummaryView
                 Spacer()
- 
             }
             HStack{
                 if isUserInfoShow{
@@ -105,7 +102,6 @@ struct LeftSideView: View {
                 .foregroundColor(.white)
             Text("EMAIL")
                 .foregroundColor(.white)
-           // Text(viewModel.emailId)
         }
         .font(.system(size: 14))
     }
@@ -180,7 +176,6 @@ struct LeftSideView: View {
             HStack(spacing: 16) {
                 HStack(alignment: .center) {
                     Button {
-                   //     onSignOut()
                     } label: {
                         Text("Sign Out")
                             .font(.system(size: 17, weight: .semibold))
